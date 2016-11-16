@@ -1,0 +1,9 @@
+{
+  "name": "CMS-MS-edu-students",
+  "version": "0.0.1",
+  "author": "Vince Gu",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "repository": "https://github.com/princessV/CMS-MS-edu-students.git"
+}
