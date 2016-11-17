@@ -1,0 +1,25 @@
+//
+   Created by puddingtea07 on 11/17/16.
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport")
+        include includes/essential_stylesheets
+        link(rel='stylesheet', href='/static/stylesheets/iCheck-blue.css')
+        title #{actionType.toUpperCase()}
+    body(class=`hold-transition ${actionType}-page`)
+        div(class=`${actionType}-box`)
+            div(class=`${actionType}-logo`)
+                a(href=`/${actionType}`) #[b Students] MS.edu
+            div(class=`${actionType}-box-body`)
+                block content
+        include includes/essential_javascripts
+        script(src='/static/javascripts/icheck.js')
+        script.
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });

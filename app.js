@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 
 var index = require('./routes/index.js');
-
+var login = require('./routes/login.js');
 
 
 app.set('views', __dirname + '/views');
@@ -14,6 +14,7 @@ app.use('/static', express.static('public'));
 
 
 app.use('/index', index);
+app.use('/login', login);
 
 app.listen(3000, function () {
     console.log('1')
