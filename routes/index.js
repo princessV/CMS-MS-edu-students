@@ -5,9 +5,13 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
+    var user = {
+        name: 'Yezi',
+        avatar: '/static/images/user2-160x160.jpg'
+    };
     var data = {
-        title: 'TestFramework',
-        message: 'Welcome!!'
+        user: user,
+        currentUrl: '/index'
     };
     res.render('index', data);
 });

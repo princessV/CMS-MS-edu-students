@@ -1,0 +1,67 @@
+//
+   Created by puddingtea07 on 11/17/16.
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title Meishi-Yezi
+        link(rel='stylesheet', href='/static/stylesheets/bootstrap.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+        link(rel='stylesheet', href='/static/stylesheets/AdminLTE.css')
+        link(rel='stylesheet', href='/static/stylesheets/skin-blue-light.css')
+        block extra_stylesheets
+
+    body(class='hold-transition skin-blue-light sidebar-mini')
+        .wrapper
+            header.main-header
+                a.logo(href='/index')
+                    span.logo-mini #[b S]CMS
+                    span.logo-mini #[b Students]CMS
+                nav(class='navbar navbar-static-top' role="navigation")
+                    a.sidebar-toggle(href='#', data-toggle='offcanvas', role='button')
+                        span.sr-only Toggle navigation
+            aside.main-sidebar
+                section.sidebar
+                    .user-panel
+                        div(class='pull-left image')
+                            img.img-circle(src=user.avatar , alt="User Image")
+                        div(class='pull-left info')
+                            p= user.name
+                            a(href='/logout') #[small Logout]
+                    ul.sidebar-menu
+                        li.header Menu
+                        li(class={active: currentUrl == '/index'})
+                            a(href='/index')
+                                i(class='fa fa-link')
+                                span Link
+                        li(class={active: currentUrl == '/another'})
+                            a(href='/index')
+                                i(class='fa fa-link')
+                                span Link
+                        li(class={active: currentUrl == '/another'}, class=['treeview'])
+                            a(href='#').
+                                <i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i>
+                            ul.treeview-menu
+                                li
+                                    a(href='#') Link in level 2
+                                li
+                                    a(href='#') Link in level 2
+            .content-wrapper
+                section.content-header
+                    h1.
+                        Page Header
+                        #[small Optional description]
+                section.content
+                    block content
+            footer.main-footer
+                div(class='pull-right hidden-xs') Anything you want
+                strong.
+                    Copyright &copy; 2015 #[a(href='#') Company]. All rights reserved.
+        script(src='/static/javascripts/jquery-2.2.3.min.js')
+        script(src='/static/javascripts/bootstrap.js')
+        script(src='/static/javascripts/app.js')
+        block javascripts
+
+

@@ -7,13 +7,13 @@ var app = express();
 var index = require('./routes/index.js');
 
 
-app.configure(function () {
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'pug');
-});
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'pug');
+app.use('/static', express.static('public'));
 
 
-app.use('/test', index);
+app.use('/index', index);
 
 app.listen(3000, function () {
     console.log('1')
