@@ -6,7 +6,7 @@ html(lang='en')
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport")
-        title Meishi - #{user.name}
+        title MS - #{user.name}
         include includes/essential_stylesheets
         block extra_stylesheets
 
@@ -32,30 +32,19 @@ html(lang='en')
                         li(class={active: currentUrl == '/index'})
                             a(href='/index')
                                 i(class='fa fa-link')
-                                span Link
-                        li(class={active: currentUrl == '/another'})
+                                span Download
+                        li(class={active: currentUrl == '/operations'})
                             a(href='/index')
                                 i(class='fa fa-link')
-                                span Link
-                        li(class={active: currentUrl == '/another'}, class=['treeview'])
-                            a(href='#').
-                                <i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i>
-                            ul.treeview-menu
-                                li
-                                    a(href='#') Link in level 2
-                                li
-                                    a(href='#') Link in level 2
+                                span Other operations
             .content-wrapper
                 section.content-header
                     h1.
-                        Page Header
-                        #[small Optional description]
+                        #{content_title}
                 section.content
                     block content
             footer.main-footer
-                div(class='pull-right hidden-xs') Anything you want
-                strong.
-                    Copyright &copy; 2015 #[a(href='#') Company]. All rights reserved.
+                div(class='pull-right hidden-xs') by qiygu
         include includes/essential_javascripts
         block extra_javascripts
 

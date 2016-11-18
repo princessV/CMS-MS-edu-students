@@ -11,7 +11,9 @@ router.get('/', function (req, res, next) {
     };
     var data = {
         user: user,
-        currentUrl: '/index'
+        currentUrl: '/index',
+        content_title: 'Download',
+        updateTime: '2016-11-09 20:00:00'
     };
     res.render('index', data);
 });

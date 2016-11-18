@@ -1,12 +1,12 @@
 extends templates/layout_loginAndRegistry
 block content
     p.login-box-msg Sign in to start your session
-    form(action='/loginAction', method='POST')
+    form(action='/user/loginAction', method='POST')
         div(class='form-group has-feedback')
-            input.form-control(type='text', placeholder='Username')
+            input.form-control(type='text', placeholder='Username', name='username')
             span(class='glyphicon glyphicon-user form-control-feedback')
         div(class='form-group has-feedback')
-            input.form-control(type='password', placeholder='Password')
+            input.form-control(type='password', placeholder='Password', name='password')
             span(class='glyphicon glyphicon-lock form-control-feedback')
         .row
             div(class='col-xs-offset-8 col-xs-4')

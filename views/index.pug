@@ -1,1 +1,9 @@
 extends templates/layout_main
+
+block content
+    .container
+        .row
+            div(class='alert alert-info' style='background-color: #3c8dbc !important')
+                h4
+                  = 'Last Updated on ' + updateTime
+                a(href='/downloadTable') Click here to download the latest version
