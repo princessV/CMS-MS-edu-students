@@ -23,20 +23,20 @@ html(lang='en')
                 section.sidebar
                     .user-panel
                         div(class='pull-left image')
-                            img.img-circle(src=user.avatar , alt="User Image")
+                            img.img-circle(src=user.avatar, alt="User Image")
                         div(class='pull-left info')
                             p= user.name
-                            a(href='/logout') #[small Click here to logout]
+                            a(href='/user/logoutAction') #[small Click here to logout]
                     ul.sidebar-menu
                         li.header Menu
                         li(class={active: currentUrl == '/index'})
                             a(href='/index')
-                                i(class='fa fa-link')
+                                i(class='fa fa-download')
                                 span Download
-                        li(class={active: currentUrl == '/operations'})
-                            a(href='/index')
-                                i(class='fa fa-link')
-                                span Other operations
+                        li(class={active: currentUrl == '/index/callback'})
+                            a(href='/index/callback')
+                                i(class='fa fa-pencil-square-o')
+                                span Callback
             .content-wrapper
                 section.content-header
                     h1.

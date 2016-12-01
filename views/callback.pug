@@ -1,0 +1,48 @@
+extends templates/layout_main
+
+block content
+    div(class='box box-padding')
+        .box-header
+            .h4 List of students
+        .box-body
+            .row(style='margin-bottom: 15px')
+                div(class='col-sm-3 entries-per-page')
+                    span.form-inline
+                        | Show &nbsp;
+                        select(name='entries-per-page', class='form-control input-sm')
+                            option(value='10') 10
+                            option(value='25') 25
+                            option(value='50') 50
+                        | &nbsp; entries
+                form(action='/getStudentRecord', method='get' class='col-sm-offset-6 col-sm-3')
+                    .input-group
+                        input(type='text', name='q', class='form-control', placeholder='Search names...')
+                        span.input-group-btn
+                            button(type='submit', class='btn btn-flat')
+                                i(class='fa fa-search')
+            table(class='table table-hover')
+                thead
+                    tr
+                        th(style='width: 8%') Name
+                        th(style='width: 15%') Updated Time
+                        th(style='width: 27%') Last Record Content
+                        th(style='width: 30%') New Record
+                        th(style='width: 10%') Way
+                        th(style='width: 10%') Options
+                tbody
+                    each record in contact_records
+                        tr
+                            td.td-padding-top #{record.student_name}
+                            td.td-padding-top #{record.last_updated_time}
+                            td.td-padding-top #{record.last_content}
+                            td
+                                input(type='text', name='new-record', class='form-control input-sm', stuid=`${record.stuid}`)
+                            td
+                                select(name='contact-way', class='form-control input-sm', stuid=`${record.stuid}`)
+                                    option(value='电话') 电话
+                                    option(value='微信') 微信
+                                    option(value='QQ') QQ
+                                    option(value='邮件') 邮件
+                                    option(value='邀约面访') 邀约面访
+                            td
+                                button(type='button' class='btn btn-default btn-sm' stuid=`${record.stuid}`) Submit

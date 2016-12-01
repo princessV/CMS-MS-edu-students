@@ -9,7 +9,8 @@
     "express-session": "^1.14.2",
     "mysql": "^2.12.0",
     "properties-reader": "0.0.15",
-    "pug": "^2.0.0-beta6"
+    "pug": "^2.0.0-beta6",
+    "request": "^2.79.0"
   },
   "repository": "https://github.com/princessV/CMS-MS-edu-students.git",
   "license": "UNLICENSED"

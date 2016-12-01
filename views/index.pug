@@ -1,9 +1,12 @@
 extends templates/layout_main
 
 block content
-    .container
+    .container-fluid
         .row
             div(class='alert alert-info' style='background-color: #3c8dbc !important')
                 h4
                   = 'Last Updated on ' + updateTime
-                a(href='/downloadTable') Click here to download the latest version
+                span Student Name: #{student_name}
+        .row
+            button(class='btn btn-default col-sm-offset-10 col-sm-1') Update
+            button(class='btn btn-default col-sm-1') Download

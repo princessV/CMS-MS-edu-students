@@ -19,11 +19,18 @@ router.post('/loginAction', function (req, res, next) {
             console.log(error);
             res.redirect('/user/login');
         } else if (results) {
+            req.session.user = results[0];
             res.redirect('/index');
         } else {
             res.redirect('/user/login');
         }
     })
+});
+
+router.get('/logoutAction', function (req, res, next) {
+   req.session.destroy(function () {
+       res.redirect('/user/login')
+   })
 });
 
 module.exports = router;
