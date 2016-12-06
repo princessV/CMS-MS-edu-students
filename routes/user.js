@@ -20,7 +20,7 @@ router.post('/loginAction', function (req, res, next) {
             res.redirect('/user/login');
         } else if (results) {
             req.session.user = results[0];
-            res.redirect('/index');
+            res.redirect('/index/download');
         } else {
             res.redirect('/user/login');
         }

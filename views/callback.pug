@@ -6,15 +6,30 @@ block content
             .h4 List of students
         .box-body
             .row(style='margin-bottom: 15px')
+                div.col-sm-2
+                    label.control-label(style='padding-top: 7px;') Current page: #{current_page}/#{total_pages}
+                div(class='col-sm-4')
+                    ul(class='pagination no-margin')
+                        li(class='paginate_button')
+                            button(class='btn btn-default home-page-btn' disabled= current_page == 1) «
+                        li(class='paginate_button previous')
+                            button(class='btn btn-default pre-page-btn' disabled= current_page == 1) Previous
+                        li.form-inline
+                            input(class='form-control' style='width:13%' type='text', name='page_index', value=`${current_page}`)
+                            button(class='btn btn-default go-page-btn') Go
+                        li(class='paginate_button next')
+                            button(class='btn btn-default next-page-btn' disabled= current_page == total_pages) Next
+                        li(class='paginate_button btn-end')
+                            button(class='btn btn-default end-page-btn' disabled= current_page == total_pages) »
                 div(class='col-sm-3 entries-per-page')
                     span.form-inline
                         | Show &nbsp;
                         select(name='entries-per-page', class='form-control input-sm')
-                            option(value='10') 10
-                            option(value='25') 25
-                            option(value='50') 50
+                            option(value='10' selected= rows == 10) 10
+                            option(value='25' selected= rows == 25) 25
+                            option(value='50' selected= rows == 50) 50
                         | &nbsp; entries
-                form(action='/getStudentRecord', method='get' class='col-sm-offset-6 col-sm-3')
+                form(action='/getStudentRecord', method='get' class='col-sm-3')
                     .input-group
                         input(type='text', name='q', class='form-control', placeholder='Search names...')
                         span.input-group-btn
@@ -46,3 +61,9 @@ block content
                                     option(value='邀约面访') 邀约面访
                             td
                                 button(type='button' class='btn btn-default btn-sm' stuid=`${record.stuid}`) Submit
+block extra_javascripts
+    script.
+        var dataOfRows = #{rows};
+        var dataOfCP = #{current_page};
+        var dataOfTP = #{total_pages};
+    script(src='/static/javascripts/pagejs/callback.js')
